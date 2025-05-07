@@ -1,33 +1,33 @@
 # SOC176 - RDP Brute Force Detected
 
-This repo documents an investigation into a brute-force attack on the RDP service of an exposed Windows server.
+In this project, I investigated a simulated security incident on the LetsDefend platform, where a Windows machine was targeted by a brute-force attack on the Remote Desktop Protocol (RDP). The attacker attempted multiple login attempts using various usernames, eventually gaining unauthorized access to the system.
 
-## Summary
+## 🧠 Key Takeaways
 
-- **Attack Type:** RDP Brute Force
-- **Detection Method:** Suricata alerts and Windows Security Logs
-- **Tools Used:** SIEM (Kibana), Event Viewer, Zeek
+- **Identified** a brute-force attack targeting RDP on a Windows machine.
+- **Analyzed** Windows Security Event Logs to trace failed and successful login attempts.
+- **Detected** post-compromise activities indicating potential privilege escalation.
+- **Mapped** the attack techniques to the MITRE ATT&CK framework.
+- **Recommended** mitigation strategies to prevent similar future incidents.
 
-## Key Findings
+---
 
-- Thousands of failed login attempts from IP `X.X.X.X`
-- Attack succeeded using weak credentials
-- Indicators: Event ID 4625, 4624
+## 🛡️ Incident Overview
 
-## Screenshots
+- **Alert Name:** SOC176 - RDP Brute Force Detected
+- **Detection Time:** March 7, 2024, 11:44 AM UTC
+- **Affected Hostname:** Matthew
+- **IP Address:** 172.16.17.148
+- **Severity Level:** Medium
+- **MITRE ATT&CK Techniques:**
+  - T1110 – Brute Force
+  - T1078 – Valid Accounts
+  - T1059 – Command and Scripting Interpreter
+  - T1087 – Account Discovery
 
-![Failed Login Graph](images/rdp_failed_logins.png)
+---
 
-## Log Samples
+## 🔍 Investigation Steps
 
-See [`logs/security_events.txt`](logs/security_events.txt)
+###
 
-## Analysis Report
-
-See [`analysis_report.md`](analysis_report.md)
-
-## Remediation
-
-- Implement Account Lockout Policy
-- Enable MFA for RDP
-- Geo-block IPs from risky regions
